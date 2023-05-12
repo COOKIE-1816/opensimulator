@@ -5,12 +5,24 @@
         <link rel="stylesheet" href="https://unpkg.com/98.css">
 
         <link rel="stylesheet" href="/stylesheet/window.css">
-        <link rel="stylesheet" href="/stylesheet/project.css"
+        <link rel="stylesheet" href="/stylesheet/project.css">
+        <link rel="stylesheet" href="/stylesheet/dialog.css">
 
         <script src="/script/window.js"></script>
         <script src="/script/project.js"></script>
+        <script src="/script/documentView.js"></script>
+        
     </head>
     <body>
+        <dialog id="dialog">
+            <div class="window" id="dialog-w">
+                <div class="title-bar">
+                    <div class="title-bar-text" id="dialog-title">Unnamed dialog</div>
+                    <div class="title-bar-controls"></div>
+                </div>
+
+                <div id="dialog-contents"></div>
+        </dialog>
         <div class="window beside" id="rootw">
             <div class="title-bar">
                 <div class="title-bar-text">Unnamed project</div>
@@ -301,6 +313,8 @@
                   </script>
             </div>
         </div>
-        
+
+
+        <script src="/script/dialog.js"></script>
     </body>
 </html>

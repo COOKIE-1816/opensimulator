@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created using OpenSimulator made by Vaclav Hajsman (a.k.a. COOKIE)-->
+
+<Document>
+    <template>
+        <part identifier="l1">
+            <id>led001</id>
+            <variant>0</variant>
+            <position>
+                <horizontal>20</horizontal>
+                <vertical>40</vertical>
+            </position>
+            <angle>90</angle>
+            <scale>100</scale>
+        </part>
+
+        <wire identifier="0">
+            <color>0</color>
+            <thickness>3.00</thickness>
+            <start>
+                <x>20</x>
+                <y>40</y>
+            </start>
+            <destination>
+                <x>140</x>
+                <y>240</y>
+            </destination>
+        </wire>
+    </template>
+    <Parts></Parts>
+    <Wires></Wires>
+</Document>

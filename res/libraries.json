@@ -1,0 +1,5 @@
+{
+    "Libraries": [
+        ["git", "https://github.com/COOKIE-1816/parts.git"]
+    ]
+}

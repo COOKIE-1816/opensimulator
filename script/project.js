@@ -149,3 +149,5 @@ document.onload = (ev) => {
     tab_circuit();
     toolset_change();
 }
+
+//Dialog.close();

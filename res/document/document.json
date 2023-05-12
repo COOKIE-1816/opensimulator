@@ -1,0 +1,36 @@
+{
+    "Document": {
+        "template": [
+            {
+                "part": "",
+                "identifier": "l1",
+                "id": "led001",
+                "variant": 0,
+                "position": {
+                    "horizontal": 20,
+                    "vertical": 40
+                },
+                "angle": 90,
+                "scale": 100
+            },
+
+            {
+                "wire":"",
+                "identifier": 0,
+                "color": 0,
+                "thickness": 3.00,
+                "start": {
+                    "x": 20,
+                    "y": 40
+                },
+                "destination": {
+                    "x": 140,
+                    "y": 240
+                }
+            }
+        ],
+
+        "parts": [],
+        "wires": []
+    }
+}
