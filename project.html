@@ -23,6 +23,10 @@
                 </div>
             </div>
 
+            <div class="status-bar">
+                <p class="status-bar-field">Press F1 for help</p>
+            </div>
+
             <menu role="tablist" id="tabslist">
                 <li role="tab" aria-selected="true"><a class="tablinks" href="javascript:void(0)" onclick="tab_circuit(event)">Circuit</a></li>
                 <li role="tab"><a class="tablinks" href="javascript:void(0)" onclick="tab_readme(event)">Readme description file</a></li>
@@ -91,7 +95,7 @@
                             <table class="interactive">
                                 <thead>
                                     <tr>
-                                        <th>Include</th>
+                                        <th>Include*</th>
                                         <th>Library name</th>
                                         <th>Library size</th>
                                         <th>Creator</th>
@@ -111,14 +115,38 @@
                                 </tbody>
                             </table>
                         </div>
+                        * - Click the link to toggle
                     </fieldset>
 
-                    
+                    <fieldset>
+                        <legend>Custom (unofficial) slibraries</legend>
+
+                        Paste links here with newlines between them. You can use hash (#) to make a comment.<br>
+                        <textarea width="300px">
+
+                        </textarea>
+                    </fieldset>
                 </div>
             </div>
 
+            <div class="window tabs" role="tabpanel" id="tab_bin">
+                <div class="window-body">
+                    <h3>Binary editor</h3>
+
+                    <div id="bin_nofile">
+                        <strong><font color="red">WARNING - NO FILE OPENED</font></strong><br>
+
+                        No binary file is opened. <br>
+                        To open file, go to "Included files" tab, choose the file to open and
+                        press "B" on your keyboard. If that file is not listed, add it by pressing "A" key on your keyboard
+                        and choose file from your computer. Alternatively, paste URL address.
+                    </div>
+                </div>
+            </div>
+
+            
         </div>
-        <div class="window beside" id="rootw">
+        <div class="window beside" id="sidesw">
             <div class="title-bar">
                 <div class="title-bar-text">Output log</div>
                 <div class="title-bar-controls">

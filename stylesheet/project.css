@@ -15,3 +15,7 @@ body {
 .tabs {
     display: none;
 }
+
+#rootw, #sidew {
+    height: 100vh;
+}

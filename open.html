@@ -8,12 +8,12 @@
         <link rel="stylesheet" href="/stylesheet/index.css">
 
         <script src="/script/window.js"></script>
-        <script src="/script/new.js"></script>
+        <script src="/script/open.js"></script>
     </head>
     <body>
         <div class="window" id="draggablediv" id="draggabledivheader">
             <div class="title-bar">
-                <div class="title-bar-text">Create a new project</div>
+                <div class="title-bar-text">Open a project</div>
                 <div class="title-bar-controls">
                     <!--
                         <button aria-label="Minimize"></button>
@@ -25,13 +25,12 @@
 
             <div class="window-body">
                 <div class="field-row-stacked" style="width: 200px">
-                    <label for="text1">Project name</label>
+                    <label for="text1">Project file URL</label>
                     <input id="text1" type="text"/>
                 </div>
 
                 <p style="text-align: right;">
-                    <button onclick="open()">Open existing...</button>
-                    <button onclick="create()">Create</button>
+                    <button onclick="open()">Open</button>
                 </p>
             </div>
         </div>
