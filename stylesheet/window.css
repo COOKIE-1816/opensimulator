@@ -1,0 +1,12 @@
+#draggablediv {
+  position: absolute;
+}
+
+#dragagabledivheader {
+  cursor: move;
+}
+
+body {
+    background-color: #008080;
+}
+

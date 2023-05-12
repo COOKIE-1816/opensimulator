@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- 98.css made by jdan-->
+        <link rel="stylesheet" href="https://unpkg.com/98.css">
+
+        <link rel="stylesheet" href="/stylesheet/window.css">
+        <link rel="stylesheet" href="/stylesheet/project.css"
+
+        <script src="/script/window.js"></script>
+        <script src="/script/project.js"></script>
+    </head>
+    <body>
+        <div class="window beside" id="rootw">
+            <div class="title-bar">
+                <div class="title-bar-text">Unnamed project</div>
+                <div class="title-bar-controls">
+                    <!--
+                        <button aria-label="Minimize"></button>
+                        <button aria-label="Maximize"></button>
+                    -->
+                    <button aria-label="Close"></button>
+                </div>
+            </div>
+
+            <menu role="tablist" id="tabslist">
+                <li role="tab" aria-selected="true"><a class="tablinks" href="javascript:void(0)" onclick="tab_circuit(event)">Circuit</a></li>
+                <li role="tab"><a class="tablinks" href="javascript:void(0)" onclick="tab_readme(event)">Readme description file</a></li>
+                <li role="tab"><a class="tablinks" href="javascript:void(0)" onclick="tab_libs(event)">Libraries</a></li>
+                <li role="tab"><a class="tablinks" href="javascript:void(0)" onclick="tab_bin(event)">Binary editor</a></li>
+                <li role="tab"><a class="tablinks" href="javascript:void(0)" onclick="tab_code(event)">Code editor</a></li>
+                <li role="tab"><a class="tablinks" href="javascript:void(0)" onclick="tab_inc(event)">Included files</a></li>
+                <li role="tab"><a class="tablinks" href="javascript:void(0)" onclick="tab_settings(event)">Project settings</a></li>
+                <li role="tab"><a class="tablinks" href="javascript:void(0)" onclick="tab_export(event)">XML, JSON</a></li>
+                <li role="tab"><a class="tablinks" href="javascript:void(0)" onclick="tab_svg(event)">SVG</a></li>
+                <li role="tab"><a class="tablinks" href="javascript:void(0)" onclick="tab_console(event)">JavaScript console</a></li>
+                <li role="tab"><a class="tablinks" href="javascript:void(0)" onclick="tab_diagnostic(event)"><strong><font color="purple">Diagnostic messages (developers)</font></strong></a></li>
+            </menu>
+
+            
+            <div class="window tabs" role="tabpanel" id="tab_circuit">
+                <div class="window-body">
+                    <div class="window">
+                        View:
+                        <select class="circuit-view-set">
+                            <option>Default</option>
+                            <option>Schematics</option>
+                        </select>
+
+                        Tool set: 
+                        <select class="toolset-select">
+                            <option>Part</option>
+                            <option>Wiring</option>
+                            <option>Inspection</option>
+                            <option>IC Memory</option>
+                            <option>Sketch and marking</option>
+                        </select>
+
+                        <button id="opt-help" style="margin-left: 5px;">
+                            Help
+                        </button>
+
+                        <button id="opt-parts-add" class="toolset-opt toolset-parts-opt" style="margin-left: 5px;">
+                            Add
+                        </button>
+                        <button id="opt-parts-resize" class="toolset-opt toolset-parts-opt">
+                            Resize
+                        </button>
+                        <button id="opt-parts-adjust" class="toolset-opt toolset-parts-opt">
+                            Adjust
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            
+            <div class="window tabs" role="tabpanel" id="tab_readme">
+                <div class="window-body">
+                    
+                </div>
+            </div>
+            
+            <div class="window tabs" role="tabpanel" id="tab_libs">
+                <div class="window-body">
+                    <h3>Library manager</h3>
+
+                    <fieldset>
+                        <legend>Official libraries</legend>
+
+                        <div class="sunken-panel" style="height: 120px; ">
+                            <table class="interactive">
+                                <thead>
+                                    <tr>
+                                        <th>Include</th>
+                                        <th>Library name</th>
+                                        <th>Library size</th>
+                                        <th>Creator</th>
+                                        <th>Description</th>
+                                        <th>Repository</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><a href="javascript:void(0)">Yes</a></td>
+                                        <td>Core parts</td>
+                                        <td>31.6 MB</td>
+                                        <td>COOKIE-1816</td>
+                                        <td>Library containing core parts. Automatically included and can not be excluded from project.</td>
+                                        <td>git: https://github.com/COOKIE-1816/parts.git</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </fieldset>
+
+                    
+                </div>
+            </div>
+
+        </div>
+        <div class="window beside" id="rootw">
+            <div class="title-bar">
+                <div class="title-bar-text">Output log</div>
+                <div class="title-bar-controls">
+                </div>
+            </div>
+
+            <div class="window-body" id="sidew">
+                    <div class="sunken-panel" style="height: 120px; width: 240px;">
+                        <table class="interactive">
+                        <thead>
+                            <tr>
+                            <th>Type</th>
+                            <th>Part</th>
+                            <th>Message</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                            <td>Info</td>
+                            <td>-</td>
+                            <td>Copyright (C) COOKIE 2023</td>
+                            </tr>
+                            <tr>
+                            <td>Warning</td>
+                            <td>-</td>
+                            <td>You're using an unstable release.</td>
+                            </tr>
+                        </tbody>
+                        </table>
+                    </div>
+                  <script>
+                    document.querySelectorAll('table.interactive').forEach(element => {
+                      element.addEventListener('click', (event) => {
+                        const row = event.path.find(element => element.tagName === 'TR' && element.parentElement.tagName === 'TBODY');
+                        if (row) {
+                          row.classList.toggle('highlighted');
+                        }
+                      })
+                    });
+                  </script>
+            </div>
+        </div>
+        
+    </body>
+</html>
