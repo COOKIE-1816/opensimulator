@@ -19,3 +19,7 @@ body {
 #rootw, #sidew {
     height: 100vh;
 }
+
+button {
+    vertical-align:auto;
+}

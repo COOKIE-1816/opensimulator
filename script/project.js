@@ -35,12 +35,14 @@ function tab_readme(e) {
     document.getElementById("tab_readme").style.display = "block";
     document.getElementsByClassName("tablinks")[1].ariaSelected = "true";
 }
+
 function tab_libs(e) {
     tabf(e);
     
     document.getElementById("tab_libs").style.display = "block";
     document.getElementsByClassName("tablinks")[2].ariaSelected = "true";
 }
+
 function tab_bin(e) {
     tabf(e);
 
@@ -48,30 +50,93 @@ function tab_bin(e) {
     document.getElementsByClassName("tablinks")[3].ariaSelected = "true";
 }
 function tab_code(e) {
+    tabf(e);
+
     document.getElementById("tab_code").style.display = "block";
     document.getElementsByClassName("tablinks")[4].ariaSelected = "true";
 }
+
 function tab_inc(e) {
+    tabf(e);
+
     document.getElementById("tab_inc").style.display = "block";
     document.getElementsByClassName("tablinks")[5].ariaSelected = "true";
 }
+
 function tab_settings(e) {
+    tabf(e);
+
     document.getElementById("tab_settings").style.display = "block";
     document.getElementsByClassName("tablinks")[6].ariaSelected = "true";
 }
+
 function tab_export(e) {
+    tabf(e);
+
     document.getElementById("tab_export").style.display = "block";
     document.getElementsByClassName("tablinks")[7].ariaSelected = "true";
 }
+
 function tab_svg(e) {
+    tabf(e);
+
     document.getElementById("tab_svg").style.display = "block";
     document.getElementsByClassName("tablinks")[8].ariaSelected = "true";
 }
+
 function tab_console(e) {
+    tabf(e);
+
     document.getElementById("tab_console").style.display = "block";
     document.getElementsByClassName("tablinks")[9].ariaSelected = "true";
 }
+
 function tab_diagnostic(e) {
+    tabf(e);
     document.getElementById("tab_diagnostic").style.display = "block";
     document.getElementsByClassName("tablinks")[10].ariaSelected = "true";
 }
+
+tab_circuit();
+
+function ol_addRow(data) {
+    var tableRow = document.getElementById("outputlog-table");
+
+    var row     = document.createElement("tr");
+    var cell1   = document.createElement("td");
+    var cell2   = document.createElement("td");
+    var cell3   = document.createElement("td");
+
+    cell1.innerHTML = data[0];
+    cell2.innerHTML = data[1];
+    cell3.innerHTML = data[2];
+
+        row.appendChild(cell1);
+        row.appendChild(cell2);
+        row.appendChild(cell3);
+    
+        tableRow.appendChild(row);
+}
+
+function toolset_hideAll() {
+    /*for(let i = 0; i < 7; i++) {
+        document.getElementsByClassName("toolset-parts-opt")[i].style.display = "none";
+    }
+    
+    for(let i = 0; i < 2; i++) {
+        document.getElementsByClassName("toolset-wiring-opt")[i].style.display = "none";
+    }*/
+
+    for(let i = 0; i < document.getElementsByClassName("toolset-opt").length; i++) {
+        document.getElementsByClassName("toolset-opt")[i].style.display = "none";
+    }
+}
+
+function toolset_change() {
+    let toolset = document.getElementById("toolset-select");
+    let val = toolset.value;
+
+
+}
+
+toolset_hideAll();

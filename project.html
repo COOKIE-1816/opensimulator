@@ -52,16 +52,16 @@
                         </select>
 
                         Tool set: 
-                        <select class="toolset-select">
-                            <option>Part</option>
-                            <option>Wiring</option>
-                            <option>Inspection</option>
-                            <option>IC Memory</option>
-                            <option>Sketch and marking</option>
+                        <select id="toolset-select" onchange="toolset_change()">
+                            <option class="toolset-set-selector">Part</option>
+                            <option class="toolset-set-selector">Wiring</option>
+                            <option class="toolset-set-selector">Inspection</option>
+                            <option class="toolset-set-selector">IC Memory</option>
+                            <option class="toolset-set-selector">Sketch and marking</option>
                         </select>
 
                         <button id="opt-help" style="margin-left: 5px;">
-                            Help
+                            <img src="icon/help_book_cool_small-3.png" width="12px"> Help
                         </button>
 
                         <button id="opt-parts-add" class="toolset-opt toolset-parts-opt" style="margin-left: 5px;">
@@ -72,6 +72,60 @@
                         </button>
                         <button id="opt-parts-adjust" class="toolset-opt toolset-parts-opt">
                             Adjust
+                        </button>
+                        <button id="opt-parts-ref" class="toolset-opt toolset-parts-opt">
+                            Online reference
+                        </button>
+                        <button id="opt-parts-merge" class="toolset-opt toolset-parts-opt">
+                            Merge
+                        </button>
+                        <button id="opt-parts-json" class="toolset-opt toolset-parts-opt">
+                            View JSON
+                        </button>
+                        <button id="opt-parts-variant" class="toolset-opt toolset-parts-opt">
+                            Select variant
+                        </button>
+
+                        <button id="opt-wiring-attach" class="toolset-opt toolset-wiring-opt" style="margin-left: 5px;">
+                            Attach wire
+                        </button>
+                        <button id="opt-wiring-cut" class="toolset-opt toolset-wiring-opt">
+                            Cut wire
+                        </button>
+                        <label class="toolset-wiring-opt toolset-opt" for="opt-wiring-color">Wire color:</label>
+                        <select id="opt-wiring-color" class="toolset-opt toolset-wiring-opt">
+                            <option>Black</option>
+                            <option>Red</option>
+                            <option>Orange</option>
+                            <option>Yellow</option>
+                            <option>Green</option>
+                            <option>Blue</option>
+                            <option>Purple</option>
+                            <option>Brown</option>
+                            <option>Gray</option>
+                            <option>White</option>
+                        </select>
+                        <label class="toolset-wiring-opt toolset-opt" for="opt-wiring-thickness">Wire thickness (mm):</label>
+                        <input type="number" placeholder="(float)" class="toolset-wiring-opt toolset-opt">
+
+                        <button id="opt-inspect-oscillator" class="toolset-inspect-opt toolset-opt" style="margin-left: 5px;">
+                            Oscillator
+                        </button>
+                        <button id="opt-inspect-osciloscope" class="toolset-inspect-opt toolset-opt">
+                            Osciloscope
+                        </button>
+                        <button id="opt-inspect-voltagetester" class="toolset-inspect-opt toolset-opt">
+                            Voltage tester
+                        </button>
+                        <button id="opt-inspect-multimeter" class="toolset-inspect-opt toolset-opt">
+                            Multimeter
+                        </button>
+
+                        <button id="opt-icmemory-program" class="toolset-icmemory-opt" style="margin-left: 5px;">
+                            Program
+                        </button>
+                        <button id="opt-icmemory-program" class="toolset-icmemory-opt">
+                            Read
                         </button>
                     </div>
                 </div>
@@ -155,7 +209,7 @@
 
             <div class="window-body" id="sidew">
                     <div class="sunken-panel" style="height: 120px; width: 240px;">
-                        <table class="interactive">
+                        <table class="interactive" id="outputlog-table">
                         <thead>
                             <tr>
                             <th>Type</th>
