@@ -48,6 +48,7 @@ function tab_bin(e) {
 
     document.getElementById("tab_bin").style.display = "block";
     document.getElementsByClassName("tablinks")[3].ariaSelected = "true";
+    console.log(e);
 }
 function tab_code(e) {
     tabf(e);
@@ -97,7 +98,6 @@ function tab_diagnostic(e) {
     document.getElementsByClassName("tablinks")[10].ariaSelected = "true";
 }
 
-tab_circuit();
 
 function ol_addRow(data) {
     var tableRow = document.getElementById("outputlog-table");
@@ -119,24 +119,33 @@ function ol_addRow(data) {
 }
 
 function toolset_hideAll() {
-    /*for(let i = 0; i < 7; i++) {
-        document.getElementsByClassName("toolset-parts-opt")[i].style.display = "none";
-    }
-    
-    for(let i = 0; i < 2; i++) {
-        document.getElementsByClassName("toolset-wiring-opt")[i].style.display = "none";
-    }*/
-
     for(let i = 0; i < document.getElementsByClassName("toolset-opt").length; i++) {
-        document.getElementsByClassName("toolset-opt")[i].style.display = "none";
+        document.getElementsByClassName("toolset-opt")[i]
+            .style.display = "none";
     }
 }
 
 function toolset_change() {
     let toolset = document.getElementById("toolset-select");
     let val = toolset.value;
+    let className;
 
+    toolset_hideAll();
+        
+    if(val == "Part") className = "parts";
+    if(val == "Wiring") className = "wiring";
+    if(val == "Inspection") className = "inspect";
+    if(val == "IC Memory") className = "icmemory";
+    if(val == "Sketch and marking") className = "paint";
 
+        for(let i = 0; i < document.getElementsByClassName(`toolset-${className}-opt`).length; i++) {
+            document.getElementsByClassName(`toolset-${className}-opt`)[i]
+                .style.display = "inline";
+        }
 }
-
-toolset_hideAll();
+    
+document.onload = (ev) => {
+    console.log("Document load complete");
+    tab_circuit();
+    toolset_change();
+}

@@ -34,7 +34,7 @@
                 <li role="tab"><a class="tablinks" href="javascript:void(0)" onclick="tab_bin(event)">Binary editor</a></li>
                 <li role="tab"><a class="tablinks" href="javascript:void(0)" onclick="tab_code(event)">Code editor</a></li>
                 <li role="tab"><a class="tablinks" href="javascript:void(0)" onclick="tab_inc(event)">Included files</a></li>
-                <li role="tab"><a class="tablinks" href="javascript:void(0)" onclick="tab_settings(event)">Project settings</a></li>
+                <li role="tab"><a class="tablinks" href="javascript:void(0)" onclick="tab_settings(event)">Preferences</a></li>
                 <li role="tab"><a class="tablinks" href="javascript:void(0)" onclick="tab_export(event)">XML, JSON</a></li>
                 <li role="tab"><a class="tablinks" href="javascript:void(0)" onclick="tab_svg(event)">SVG</a></li>
                 <li role="tab"><a class="tablinks" href="javascript:void(0)" onclick="tab_console(event)">JavaScript console</a></li>
@@ -44,7 +44,7 @@
             
             <div class="window tabs" role="tabpanel" id="tab_circuit">
                 <div class="window-body">
-                    <div class="window">
+                    <div class="window" id="toolbar-container">
                         View:
                         <select class="circuit-view-set">
                             <option>Default</option>
@@ -61,7 +61,7 @@
                         </select>
 
                         <button id="opt-help" style="margin-left: 5px;">
-                            <img src="icon/help_book_cool_small-3.png" width="12px"> Help
+                            <img src="icon/help_book_cool-4.png" width="12px"> Help
                         </button>
 
                         <button id="opt-parts-add" class="toolset-opt toolset-parts-opt" style="margin-left: 5px;">
@@ -121,20 +121,80 @@
                             Multimeter
                         </button>
 
-                        <button id="opt-icmemory-program" class="toolset-icmemory-opt" style="margin-left: 5px;">
+                        <button id="opt-icmemory-program" class="toolset-icmemory-opt toolset-opt" style="margin-left: 5px;">
                             Program
                         </button>
-                        <button id="opt-icmemory-program" class="toolset-icmemory-opt">
+                        <button id="opt-icmemory-program" class="toolset-icmemory-opt toolset-opt">
                             Read
                         </button>
+                        <button id="opt-icmemory-program" class="toolset-icmemory-opt toolset-opt">
+                            Program microcontroller memory
+                        </button>
+                        <button id="opt-icmemory-program" class="toolset-icmemory-opt toolset-opt">
+                            Read microcontroller memory
+                        </button>
+                        
+                        <button id="opt-sketch" class="toolset-sketch-paint toolset-opt" style="margin-left: 5px;">
+                            Paint brush
+                        </button>
+                        <button id="opt-sketch" class="toolset-sketch-text toolset-opt">
+                            Text field
+                        </button>
+                        <button id="opt-sketch" class="toolset-sketch-rect toolset-opt">
+                            Rectangle
+                        </button>
+                        <button id="opt-sketch" class="toolset-sketch-square toolset-opt">
+                            Square
+                        </button>
+                        <button id="opt-sketch" class="toolset-sketch-round toolset-opt">
+                            Round
+                        </button>
+                        <button id="opt-sketch" class="toolset-sketch-triangle toolset-opt">
+                            Triangle
+                        </button>
+                        <button id="opt-sketch" class="toolset-sketch-fill toolset-opt">
+                            Fill
+                        </button>
+                        <label class="toolset-sketch-opt toolset-opt" for="opt-sketch-color">Color:</label>
+                        <select id="opt-sketch-color" class="toolset-opt toolset-sketch-opt">
+                            <option>Black</option>
+                            <option>Red</option>
+                            <option>Orange</option>
+                            <option>Yellow</option>
+                            <option>Green</option>
+                            <option>Blue</option>
+                            <option>Purple</option>
+                            <option>Brown</option>
+                            <option>Gray</option>
+                            <option>White</option>
+                        </select>
+                    
                     </div>
+                </div>
+
+                <fieldset>
+                    <legend>Document</legend>
+    
+                    <canvas id="document"></canvas>
+                </fieldset>
+            </div>
+
+            <div class="window tabs" role="tabpanel" id="tab_settings">
+                <div class="window-body">
+                    <h3>Preferences</h3>
+
+                    <h4>Appearance</h4>
+                    <input type="checkbox" id="checkbox1">
+                    <label for="checkbox1">Show grid</label><br>
+                    <label for="units">10 real milimeters = </label>
+                    <input type="number" id="units">
+                    <label for="units"> milimeters on document view</label>
                 </div>
             </div>
             
-            
             <div class="window tabs" role="tabpanel" id="tab_readme">
                 <div class="window-body">
-                    
+                    <h3>Project information</h3>
                 </div>
             </div>
             
@@ -197,8 +257,6 @@
                     </div>
                 </div>
             </div>
-
-            
         </div>
         <div class="window beside" id="sidesw">
             <div class="title-bar">

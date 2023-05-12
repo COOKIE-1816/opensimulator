@@ -8,8 +8,9 @@ body {
         
 }
 
-#tablist {
+#tablist #toolbar-container {
     overflow: hidden;
+    white-space: nowrap;
 }
 
 .tabs {
@@ -18,8 +19,15 @@ body {
 
 #rootw, #sidew {
     height: 100vh;
+    /*display: ;*/
 }
 
-button {
-    vertical-align:auto;
+#rootw .window {
+    display: fixed;
+}
+
+#document {
+    background-color: #ffffff;
+    width: 100%;
+    height: 85%;
 }
