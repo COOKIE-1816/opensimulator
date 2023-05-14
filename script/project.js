@@ -1,3 +1,15 @@
+const urlParameters = new URLSearchParams(window.location.search);
+
+/*
+log("  +-----------------------------------+", "", MESSAGE, 0);
+log("  |        OpenSimulator 2023 =       |", "", MESSAGE, 0);
+log("  |   Electrical circuit simulator    |", "", MESSAGE, 0);
+log("  | Copyright (C) Vaclav Hajsman 2023 |", "", MESSAGE, 0);
+log("  +-----------------------------------+", "", MESSAGE, 0);
+*/
+
+log("You are using unstable release. This may result in any kind of unexcepted behaivor, including data loss.", "Environment", WARN, 0);
+
 function tabf(e) {
     var i, tabcontent, tablinks, tabslist
     
@@ -94,60 +106,34 @@ function tab_console(e) {
 
 function tab_diagnostic(e) {
     tabf(e);
+
     document.getElementById("tab_diagnostic").style.display = "block";
     document.getElementsByClassName("tablinks")[10].ariaSelected = "true";
 }
 
-
-function ol_addRow(data) {
-    var tableRow = document.getElementById("outputlog-table");
-
-    var row     = document.createElement("tr");
-    var cell1   = document.createElement("td");
-    var cell2   = document.createElement("td");
-    var cell3   = document.createElement("td");
-
-    cell1.innerHTML = data[0];
-    cell2.innerHTML = data[1];
-    cell3.innerHTML = data[2];
-
-        row.appendChild(cell1);
-        row.appendChild(cell2);
-        row.appendChild(cell3);
-    
-        tableRow.appendChild(row);
-}
-
-function toolset_hideAll() {
-    for(let i = 0; i < document.getElementsByClassName("toolset-opt").length; i++) {
-        document.getElementsByClassName("toolset-opt")[i]
-            .style.display = "none";
-    }
-}
-
-function toolset_change() {
-    let toolset = document.getElementById("toolset-select");
-    let val = toolset.value;
-    let className;
-
-    toolset_hideAll();
-        
-    if(val == "Part") className = "parts";
-    if(val == "Wiring") className = "wiring";
-    if(val == "Inspection") className = "inspect";
-    if(val == "IC Memory") className = "icmemory";
-    if(val == "Sketch and marking") className = "paint";
-
-        for(let i = 0; i < document.getElementsByClassName(`toolset-${className}-opt`).length; i++) {
-            document.getElementsByClassName(`toolset-${className}-opt`)[i]
-                .style.display = "inline";
-        }
-}
-    
 document.onload = (ev) => {
     console.log("Document load complete");
     tab_circuit();
     toolset_change();
 }
 
-//Dialog.close();
+async function openDir() {
+    try {
+        const directoryHandle = await window.showDirectoryPicker({
+            id: "openSimulator_openDir", 
+            mode: "readwrite"
+        });
+
+        Dialog.close();
+    } catch(error) {
+        Dialog.error("Can't open project", `Unable to open project: ${error}`);
+        log(error, "directoryHandle", ERROR, 0);
+    }
+
+    log("directoryHandle", "Directory open", INFO, 0);
+}
+
+if(urlParameters.has("open")) {
+    let body = "Please click OK, then pick a directory containing project files (Read-write access).<br><button onclick='openDir()'>OK</button>";
+    Dialog.popWithImage("Open a project", body, "/icon/message_file-0.png");
+}

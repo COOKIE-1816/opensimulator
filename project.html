@@ -8,20 +8,17 @@
         <link rel="stylesheet" href="/stylesheet/project.css">
         <link rel="stylesheet" href="/stylesheet/dialog.css">
 
-        <script src="/script/window.js"></script>
-        <script src="/script/project.js"></script>
-        <script src="/script/documentView.js"></script>
         
     </head>
     <body>
         <dialog id="dialog">
             <div class="window" id="dialog-w">
                 <div class="title-bar">
-                    <div class="title-bar-text" id="dialog-title">Unnamed dialog</div>
+                    <div class="title-bar-text" id="dialog-title">Environment preparation</div>
                     <div class="title-bar-controls"></div>
                 </div>
 
-                <div id="dialog-contents"></div>
+                <div id="dialog-contents">Environment is getting ready. Please wait patiently...</div>
         </dialog>
         <div class="window beside" id="rootw">
             <div class="title-bar">
@@ -243,15 +240,20 @@
                         </div>
                         * - Click the link to toggle
                     </fieldset>
-
+                    
                     <fieldset>
                         <legend>Custom (unofficial) slibraries</legend>
 
                         Paste links here with newlines between them. You can use hash (#) to make a comment.<br>
-                        <textarea width="300px">
-
+                        <textarea id="libta">
+# Paste links here with newlines between them. You can use hash (#) to make a comment.
                         </textarea>
                     </fieldset>
+
+                    <div style="text-align: right; margin-top: 8px;">
+                        <button id="libDiscard">Discard</button>
+                        <button id="libSave">Update library list</button>
+                    </div>
                 </div>
             </div>
 
@@ -266,6 +268,14 @@
                         To open file, go to "Included files" tab, choose the file to open and
                         press "B" on your keyboard. If that file is not listed, add it by pressing "A" key on your keyboard
                         and choose file from your computer. Alternatively, paste URL address.
+                    </div>
+                </div>
+            </div>
+
+            <div class="window tabs" role="tabpanel" id="tab_diagnostic">
+                <div class="window-body">
+                    <div id="diagnostic-ta">
+                        
                     </div>
                 </div>
             </div>
@@ -314,7 +324,14 @@
             </div>
         </div>
 
+        <!--<script src="https://deno.land/x/zipjs/index.js"></script>-->
 
         <script src="/script/dialog.js"></script>
+        <script src="/script/log.js"></script>
+        <script src="/script/canvas.js"></script>
+        <script src="/script/project.js"></script>
+        <script src="/script/documentView.js"></script>
+        <script src="/script/outputLog.js"></script>
+        <script src="/script/toolset.js"></script>
     </body>
 </html>

@@ -10,3 +10,7 @@
 dialog {
     border: none;
 }
+
+#dialog-contents button {
+    margin-top: 16px;
+}

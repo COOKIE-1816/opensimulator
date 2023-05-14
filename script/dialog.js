@@ -24,6 +24,10 @@ let Dialog = {
         body = `<table><tr><td><img src="${imageUrl}"></td><td>${t}</td></tr></table>`;
 
         this.pop(title, body);
+    },
+
+    error: function(title, body) {
+        this.popWithImage(title, body, "/icon/msg_error-0.png");
     }
 }
 

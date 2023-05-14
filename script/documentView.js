@@ -1,26 +1,5 @@
 let DocumentView = {
     grid_draw: function(size) {
-        /*size = size * 3.78;
-
-        let canvas = document.getElementById("document");
-        let context = canvas.getContext("2d");
-
-
-        for(let x = 0; x <= size; x += 30) {
-            context.moveTo(0.5 + x, 0);
-            context.lineTo(0.5 + x, size);
-        }
-
-        for(let x = 0; x <= size; x += 30) {
-            context.moveTo(0, 0.5 + x);
-            context.lineTo(size, 0.5 + x);
-        }
-
-        context.strokeStyle = "black";
-        context.stroke();*/
-
-        //size = size * 2;
-
         //size = size * 3.78;
 
         let canvas = document.getElementById("document");
