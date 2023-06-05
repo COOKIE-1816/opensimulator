@@ -1,2 +1,0 @@
-# opensimulator
-Electrical circuit simulator
